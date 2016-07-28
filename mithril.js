@@ -1344,7 +1344,7 @@
 		}
 
 		prop.toJSON = function () {
-			return store
+			return store instanceof Date ? store.toISOString() : store
 		}
 
 		return prop
