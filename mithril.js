@@ -1344,7 +1344,8 @@
 		}
 
 		prop.toJSON = function () {
-			return store instanceof Date ? store.toISOString() : store
+			var method = store != null && store.toJSON
+			return typeof method === "function" ? method.call(store) : store
 		}
 
 		return prop
